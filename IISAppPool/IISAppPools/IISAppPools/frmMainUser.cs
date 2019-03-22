@@ -133,7 +133,7 @@ namespace IISAppPools
             {
                 string appKeyName = keyName + ".{" + appName + "}";
                 List<string> productInfo = new List<string> { };
-               // Console.WriteLine(appKeyName);
+
                 foreach (string uninstallKeyName in uninstallKeyNames)
                 {
                     if (uninstallKeyName == appKeyName)
@@ -184,9 +184,7 @@ namespace IISAppPools
 
             foreach (string key in appInfos.Keys)
             {
-                Console.WriteLine(key);
                 int rowCount = 0;
-
 
                 TableLayoutPanel tableLayoutPanel = new TableLayoutPanel();                
                 tableLayoutPanel.Name = key + "tableLayoutPannel";
@@ -243,76 +241,6 @@ namespace IISAppPools
             Form changeFrm = new frmChangeConfig( siteName, sitePath);
             changeFrm.ShowDialog();
         }
-
-
-
-        private void tmp()
-        {
-            DirectoryEntry appPools = new DirectoryEntry("IIS://localhost/W3SVC/AppPools");
-
-            foreach (DirectoryEntry appPool in appPools.Children)
-            {
-                Console.WriteLine(appPool.Name);
-                Console.WriteLine(appPool.InvokeGet("ManagedRuntimeVersion"));
-                Console.WriteLine(appPool.InvokeGet("AppPoolCommand"));
-                Console.WriteLine(appPool.InvokeGet("ManagedPipelineMode"));
-                Console.WriteLine(appPool.InvokeGet("AppPoolIdentityType"));
-                Console.WriteLine(appPool.InvokeGet("enable32BitAppOnWin64"));
-
-                Console.WriteLine("*****************");
-            }
-            
-
-            ServerManager serverManger = new ServerManager();
-            
-                        foreach (var s in serverManger.Sites)
-                        {
-                            if (s.Name.Contains("SiSS"))
-                            {                    
-                                foreach( var a in s.Applications)
-                                {
-                                    Console.WriteLine(a.ToString());
-                                    Console.WriteLine(a.Schema.Name);
-                                    Console.WriteLine(a.Path);
-                                    Console.WriteLine(a.VirtualDirectories["/"].PhysicalPath); //应用程序物理路径
-                                    Console.WriteLine(a.ApplicationPoolName);   //应用池名称
-                                    Console.WriteLine(a.EnabledProtocols);                        
-                                    Console.WriteLine("----------");
-                                }
-                            }
-                        }
-            
-            List<string> strList = new List<string> { };
-
-            strList = GetAppNames();
-
-            foreach(string s in strList)
-            {
-                Console.WriteLine($"站点名称:{s}");
-                Console.WriteLine($"应用池名称：{GetAppPoolName(s)}");
-                Console.WriteLine($"应用程序物理路径：{GetAppPhysicalPath(s)}");
-                Console.WriteLine($"应用程序位数：{GetAppPoolBit(GetAppPoolName(s))}");
-                Console.WriteLine($"应用程序产品名：{GetRegistryKey(s)[0]}");
-                Console.WriteLine($"应用程序库名：{GetRegistryKey(s)[1]}");
-
-                Console.WriteLine("**************");
-
-            }        
-            
-
-            Dictionary<string, Dictionary<string, string>> tmp = GetAppInfos();
-
-            foreach(string key in tmp.Keys)
-            {
-                Console.WriteLine(key);
-                foreach (KeyValuePair<string, string> kv in tmp[key])
-                {
-                    Console.WriteLine("{0} \t {1}", kv.Key, kv.Value);
-                }
-            }
-            
-
-            FillControls();
-        }
+     
     }
 }

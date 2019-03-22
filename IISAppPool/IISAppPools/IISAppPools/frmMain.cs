@@ -18,7 +18,7 @@ namespace IISAppPools
         {
             InitializeCheck();            
             InitializeComponent();
-            Debug.Listeners.Add(new ConsoleTraceListener());
+            //Debug.Listeners.Add(new ConsoleTraceListener());
             FillControls();
         }
 
