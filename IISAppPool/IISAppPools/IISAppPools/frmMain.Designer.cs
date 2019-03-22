@@ -33,17 +33,18 @@
             // 
             // flpaMain
             // 
+            this.flpaMain.AutoScroll = true;
             this.flpaMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flpaMain.Location = new System.Drawing.Point(0, 0);
             this.flpaMain.Name = "flpaMain";
-            this.flpaMain.Size = new System.Drawing.Size(650, 628);
+            this.flpaMain.Size = new System.Drawing.Size(684, 628);
             this.flpaMain.TabIndex = 0;
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(650, 628);
+            this.ClientSize = new System.Drawing.Size(684, 628);
             this.Controls.Add(this.flpaMain);
             this.DoubleBuffered = true;
             this.Name = "frmMain";
@@ -54,8 +55,7 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.FlowLayoutPanel flpaMain;
+        public System.Windows.Forms.FlowLayoutPanel flpaMain;
     }
 }
 

@@ -16,10 +16,10 @@ namespace IISAppPools
     {
         public frmMain()
         {
-            InitializeCheck();
-            tmp();
+            InitializeCheck();            
             InitializeComponent();
             Debug.Listeners.Add(new ConsoleTraceListener());
+            FillControls();
         }
 
     }
